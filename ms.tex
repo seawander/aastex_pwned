@@ -1,0 +1,76 @@
+\documentclass[times, twocolumn]{aastex63}
+\bibliographystyle{aasjournal}
+\usepackage{graphicx, graphics}
+\bibliographystyle{aasjournal}
+\usepackage{CJK}
+\usepackage{amsmath, amssymb, bm}
+
+\usepackage[nodayofweek]{datetime}
+\newdateformat{monthyearday}{%
+  \THEYEAR\ \monthname[\THEMONTH] \twodigit{\THEDAY}}
+  
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+%\received{}
+%\revised{}
+%\accepted{}
+\published{\monthyearday\today}
+
+
+\shorttitle{Pwned AASTeX}
+\shortauthors{Ren et al.}
+
+\usepackage{romannum}
+
+\begin{document}
+\pagenumbering{arabic}
+\begin{CJK*}{UTF8}{gbsn}
+\title{Pwned AASTeX}
+\author[0000-0003-1698-9696]{Bin Ren (任彬)}\email{ren@jhu.edu}
+\affiliation{Department of Physics and Astronomy, The Johns Hopkins University, 3701 San Martin Drive, Baltimore, MD 21218, USA}
+\affiliation{Department of Applied Mathematics and Statistics, The Johns Hopkins University, 3400 North Charles Street, Baltimore, MD 21218, USA}
+
+\begin{abstract}
+Modified from \url{https://journals.aas.org/aastexguide/}. The format of the titles have maximum similarity with the published version. The references are also well formatted. For example, \citet{ren17, ren18, ren18b, zhu16}. In the References section, the {\tt doi} is linked to the journal or proceeding name, and the {\tt adsurl} is linked to the volume and page number.
+
+
+\end{abstract}
+
+\keywords{blah blah}
+
+\section{How to use}
+Download {\tt aastex63.tex} (or {\tt aastex62.tex}), {\tt aasjournal.bst}, and {\tt orcid.png} from \url{https://github.com/seawander/aastex_pwned}.
+
+
+\section{Section}
+This is a section. The title is not capitalized and is in \textbf{bold face} now! Cite the appendix using {\tt \textbackslash ref}: \ref{append-a}.
+
+\subsection{Blah blah}
+This is a subsection. The title  is in \textit{italics} now!
+
+\subsubsection{Blah blah}
+This is a subsubsection.
+
+\paragraph{This is a paragraph} 
+
+
+
+\facilities{}
+
+\software{}
+
+\acknowledgments
+This is the acknowledgements. I thank Xinyu Lu and Sihao Cheng for testing.
+
+
+\appendix
+\section{Example Appendix 1}\label{append-a}
+
+This is an appendix. It's double columned and the title is in \textbf{bold face} now!
+
+\subsection{Example Appendix 1 sub}\label{append-a-1}
+This is the subsection of an appendix. It's double columned now!
+
+\bibliography{refs}
+\end{CJK*}
+\end{document}
