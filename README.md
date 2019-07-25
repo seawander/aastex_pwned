@@ -8,5 +8,5 @@ Check the https://github.com/seawander/aastex_pwned/blob/master/ms.pdf for an ex
 
 ### Notes:
 1. Modified from https://journals.aas.org/aastexguide/.
-2. Don't for get the ```orcid.png``` file, otherwise you won't get the awesome ORCID symbol.
+2. Don't forget the ```orcid.png``` file, otherwise you won't get the awesome ORCID symbol.
 3. You are welcome to modify based on your needs!
