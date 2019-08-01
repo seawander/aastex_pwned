@@ -1236,10 +1236,22 @@ FUNCTION {format.journal}
 			                    				{"NatAs" *}
 			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "NatAs" * "}" *}
 			                    			if$}
+			                    			{journal "Progress of Theoretical Physics Supplement" = 
+			                    			{doi empty$
+			                    				{"PThPS" *}
+			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "PThPS" * "}" *}
+			                    			if$}
+			                    			{journal "Astronomische Nachrichten" = 
+			                    			{doi empty$
+			                    				{"AN" *}
+			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "AN" * "}" *}
+			                    			if$}
 			                    			{doi empty$
 			                    				{ journal }
 			                    				{ "\href{http://dx.doi.org/" doi * "}{\color{magenta}" * journal * "}" * }
 			                    		      	if$}
+			                    		if$}
+			                    		if$}
 			                    		if$}
 			                    		if$}
 		                    		if$}
