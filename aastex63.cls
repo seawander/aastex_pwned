@@ -1784,7 +1784,7 @@ the#1\endcsname}
 \newcommand\nphysa{\ref@jnl{NuPhA}}%     % Nuclear Physics A 
 \newcommand\physrep{\ref@jnl{PhR}}%       % Physics Reports 
 \newcommand\physscr{\ref@jnl{PhyS}}%        % Physica Scripta 
-\newcommand\planss{\ref@jnl{Planet.~Space~Sci.}}%  % Planetary Space Science 
+\newcommand\planss{\ref@jnl{P\&SS}}%  % Planetary Space Science 
 \newcommand\procspie{\ref@jnl{Proc.~SPIE}}%      % Proceedings of the SPIE 
 
 \newcommand\actaa{\ref@jnl{AcA}}%  % Acta Astronomica
