@@ -1246,10 +1246,22 @@ FUNCTION {format.journal}
 			                    				{"AN" *}
 			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "AN" * "}" *}
 			                    			if$}
+			                    			{journal "The Astrophysical Journal" = 
+			                    			{doi empty$
+			                    				{"AN" *}
+			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "ApJ" * "}" *}
+			                    			if$}
+			                    			{journal "The Astronomical Journal" = 
+			                    			{doi empty$
+			                    				{"AN" *}
+			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "AJ" * "}" *}
+			                    			if$}
 			                    			{doi empty$
 			                    				{ journal }
 			                    				{ "\href{http://dx.doi.org/" doi * "}{\color{magenta}" * journal * "}" * }
 			                    		      	if$}
+			                    		if$}
+			                    		if$}
 			                    		if$}
 			                    		if$}
 			                    		if$}
