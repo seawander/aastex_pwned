@@ -1261,10 +1261,16 @@ FUNCTION {format.journal}
 			                    				{"CSE" *}
 			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "CSE" * "}" *}
 			                    			if$}
+			                    			{journal "Publications of the Kapteyn Astronomical Laboratory Groningen" = 
+			                    			{doi empty$
+			                    				{"PGro" *}
+			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "PGro" * "}" *}
+			                    			if$}
 			                    			{doi empty$
 			                    				{ journal }
 			                    				{ "\href{http://dx.doi.org/" doi * "}{\color{magenta}" * journal * "}" * }
 			                    		      	if$}
+			                    		if$}
 			                    		if$}
 			                    		if$}
 			                    		if$}
