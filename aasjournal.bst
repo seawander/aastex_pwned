@@ -1256,10 +1256,16 @@ FUNCTION {format.journal}
 			                    				{"AN" *}
 			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "AJ" * "}" *}
 			                    			if$}
+			                    			{journal "Computing in Science and Engineering" = 
+			                    			{doi empty$
+			                    				{"CSE" *}
+			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "CSE" * "}" *}
+			                    			if$}
 			                    			{doi empty$
 			                    				{ journal }
 			                    				{ "\href{http://dx.doi.org/" doi * "}{\color{magenta}" * journal * "}" * }
 			                    		      	if$}
+			                    		if$}
 			                    		if$}
 			                    		if$}
 			                    		if$}
