@@ -1309,7 +1309,7 @@ FUNCTION {format.series}
 			{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "Proc.~SPIE" * "}" *}
 		if$}
 		{doi empty$
-			{ journal }
+			{ series }
 			{ "\href{http://dx.doi.org/" doi * "}{\color{magenta}" * series * "}" * }
 	      	if$}
 		if$}
