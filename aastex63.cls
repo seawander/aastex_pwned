@@ -1268,7 +1268,14 @@ the#1\endcsname}
 \def\thesubsection{\Alph{section}.\arabic{subsection}}
 \def\thesubsubsection{\Alph{section}.\arabic{subsubsection}}
 \def\theparagraph{\Alph{section}.\arabic{paragraph}}
+
+\counterwithin*{equation}{section} % Added by Bin Ren to reset equation counter in each section in appendix
+\counterwithin*{figure}{section} % Added by Bin Ren to reset figure counter in each section in appendix
+\counterwithin*{table}{section} % Added by Bin Ren to reset table counter in each section in appendix
+
+
 \def\theequation{\hbox{\Alph{section}\arabic{equation}}}
+\renewcommand{\theHfigure}{\Alph{section}\arabic{figure}} % Added by Bin Ren to properly link to appendix figures
 \def\thefigure{\hbox{\Alph{section}\arabic{figure}}}
 %% these are NOT supposed to reset to zero
 %\setcounter{table}{0}
