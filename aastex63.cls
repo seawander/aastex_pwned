@@ -2096,6 +2096,8 @@ width0pt\relax#1$}\ignorespaces}
   \do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
   \do\Y\do\Z\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9}
 
+%% for counting equations in different section in appendix % added by Bin Ren
+\usepackage{chngcntr}      % added by Bin Ren
 
 %% for tables continuing over pages
 \usepackage{longtable}
