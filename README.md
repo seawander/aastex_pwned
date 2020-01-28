@@ -4,7 +4,7 @@ AASTex.cls and aasjournal.bst files for __maximum similarity__ with published ve
 ## How to use:
 Download ```aastex63.cls``` (or ```aastex62.cls```), ```aasjournal.bst```, and ```orcid.png``` from https://github.com/seawander/aastex_pwned.
 
-Check the https://github.com/seawander/aastex_pwned/blob/master/ms.pdf file for a simple example. https://arxiv.org/pdf/1908.00006.pdf is a fully working example.
+Check the https://github.com/seawander/aastex_pwned/blob/master/ms.pdf file for a simple example. https://arxiv.org/abs/2001.00563 is a fully working example.
 
 ### Notes:
 1. Modified from https://journals.aas.org/aastexguide/.
