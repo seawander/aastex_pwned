@@ -1266,10 +1266,16 @@ FUNCTION {format.journal}
 			                    				{"PGro" *}
 			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "PGro" * "}" *}
 			                    			if$}
+			                    			{journal "Philosophical Transactions of the Royal Society of London Series A" = 
+			                    			{doi empty$
+			                    				{"RSPTA" *}
+			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "RSPTA" * "}" *}
+			                    			if$}
 			                    			{doi empty$
 			                    				{ journal }
 			                    				{ "\href{http://dx.doi.org/" doi * "}{\color{magenta}" * journal * "}" * }
 			                    		      	if$}
+			                    		if$}
 			                    		if$}
 			                    		if$}
 			                    		if$}
