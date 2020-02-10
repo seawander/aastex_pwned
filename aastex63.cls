@@ -5773,7 +5773,7 @@ by 1\relax}\ignorespaces}%
 \newcommand*\submitjournal[1]
 {\def\@submitted{Submitted to #1}}%
 
-\newcommand*\acceptjournall[1]
+\newcommand*\acceptjournal[1]
 {\def\@submitted{Accepted to #1}}% Added by Bin Ren
 
 
