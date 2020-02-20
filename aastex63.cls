@@ -962,7 +962,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 %  ****************************************
 
 
-  \def\@keys@name{\textit{Keywords:}\/~\mbox{}}%
+  \def\@keys@name{\textit{Unified Astronomy Thesaurus concepts:}\/~\mbox{}}%
 
 \newlength{\keys@width}
 \def\frontmatter@keys@format{\ifmodern\vskip0pt\else\vspace*{0.5mm}\fi%
