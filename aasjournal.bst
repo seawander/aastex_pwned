@@ -1309,19 +1309,17 @@ FUNCTION {format.journal}
  }
  
 
- 
 
  
-
- 
-
 
 FUNCTION {format.series}
 { series empty$
     { "" }
     { series "arXiv e-prints" =
 	{""}
-	{series "Society of Photo-Optical Instrumentation Engineers (SPIE) Conference Series" = 
+	{series "American Astronomical Society Meeting Abstracts" = 
+		{"AAS Meeting"}
+		{series "Society of Photo-Optical Instrumentation Engineers (SPIE) Conference Series" = 
 		{doi empty$
 			{"Proc.~SPIE" *}
 			{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "Proc.~SPIE" * "}" *}
@@ -1331,9 +1329,14 @@ FUNCTION {format.series}
 			{ "\href{http://dx.doi.org/" doi * "}{\color{magenta}" * series * "}" * }
 	      	if$}
 		if$}
+		if$}
     if$}
   if$
  }
+
+
+
+
  
 FUNCTION {format.vol}
 { volume empty$
