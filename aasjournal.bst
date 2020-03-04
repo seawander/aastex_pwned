@@ -1271,10 +1271,22 @@ FUNCTION {format.journal}
 			                    				{"RSPTA" *}
 			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "RSPTA" * "}" *}
 			                    			if$}
+			                    			{journal "Frontiers in Astronomy and Space Sciences" = 
+			                    			{doi empty$
+			                    				{"FrASS" *}
+			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "FrASS" * "}" *}
+			                    			if$}
+			                    			{journal "New Journal of Physics" = 
+			                    			{doi empty$
+			                    				{"NJPh" *}
+			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "NJPh" * "}" *}
+			                    			if$}
 			                    			{doi empty$
 			                    				{ journal }
 			                    				{ "\href{http://dx.doi.org/" doi * "}{\color{magenta}" * journal * "}" * }
 			                    		      	if$}
+			                    		if$}
+			                    		if$}
 			                    		if$}
 			                    		if$}
 			                    		if$}
