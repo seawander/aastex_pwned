@@ -1281,10 +1281,16 @@ FUNCTION {format.journal}
 			                    				{"NJPh" *}
 			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "NJPh" * "}" *}
 			                    			if$}
+			                    			{journal "Statistics and Computing" = 
+			                    			{doi empty$
+			                    				{"S\&C" *}
+			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "S\&C" * "}" *}
+			                    			if$}
 			                    			{doi empty$
 			                    				{ journal }
 			                    				{ "\href{http://dx.doi.org/" doi * "}{\color{magenta}" * journal * "}" * }
 			                    		      	if$}
+			                    		if$}
 			                    		if$}
 			                    		if$}
 			                    		if$}
