@@ -962,7 +962,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 %  ****************************************
 
 
-  \def\@keys@name{\textit{Unified Astronomy Thesaurus concepts:}\/~\mbox{}}%
+  \def\@keys@name{\textit{Unified Astronomy Thesaurus concepts:}\/~\mbox{}}% Changed by Bin Ren from "Keywords" to "Unified Astronomy Thesaurus concepts"
 
 \newlength{\keys@width}
 \def\frontmatter@keys@format{\ifmodern\vskip0pt\else\vspace*{0.5mm}\fi%
@@ -972,7 +972,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 \leftskip=34pt
 \fi
 \parindent=0pt%
-    \hangindent=\keys@width\hangafter=1\normalsize}%
+    \hangindent=0\keys@width\hangafter=1\normalsize}% 0 before \keys is added by Bin Ren to avoid forced indenting after ":"
 \def\@keywords@produce#1{%
  \showKEYS@sw{%
   \begingroup%
