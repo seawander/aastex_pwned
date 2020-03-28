@@ -5277,14 +5277,14 @@ to\hsize{\hss\vtop{\hsize=\maxtablewidth\caption{\@tablecaption}}\hss}\vskip3pt\
 }
 
 \def\tablecomments#1{\vskip1pt{\small\vskip1sp\indent\vrule height 11pt depth 2pt
-width 0pt\currtabletypesize{\sc Note}---{#1}\vskip1pt}}
+width 0pt\currtabletypesize{\textbf{Note.}}{ #1}\vskip1pt}} % Adjusted by Bin Ren to match published tablecomments style
 
 \def\tablenotetext#1#2{\vskip1pt{\currtabletypesize\vskip1pt\indent\vrule
 height 11pt depth
 2pt width0pt\relax{\normalfont\textsuperscript{\scriptsize #1}} #2\vskip1pt}} % Adjusted by Bin Ren to match published tablenotetext mark
 
 \def\tablerefs#1{{\small\vskip3pt\indent\vrule height 11pt depth 2pt
-width 0pt\currtabletypesize{\bf References.}{ #1}\vskip1sp}} % Adjusted by Bin Ren to match publication style
+width 0pt\currtabletypesize{\textbf{References.}}{ #1}\vskip1sp}} % Adjusted by Bin Ren to match publication style
 
 \let\tablereferences\tablerefs
 
