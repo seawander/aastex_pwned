@@ -817,7 +817,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 
 \def\frontmatter@affiliationfont{\normalfont\footnotesize
 %% changed october 2017
-\it
+%\it 						%commented out by Bin Ren to match publication font
 \iflongauthor\else
 \ifrnaas\else
 \rightskip-12pt plus 1fil
