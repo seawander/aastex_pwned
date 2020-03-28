@@ -1903,7 +1903,7 @@ the#1\endcsname}
 }%
 
 %% march 2019, added \it to tablenotemark
-\global\def\tablenotemark#1{{\normalfont\textsuperscript{\normalsize\it #1}}}
+\global\def\tablenotemark#1{{\normalfont\textsuperscript{\scriptsize #1}}} % changed by Bin Ren to \scriptsize to match published tablenotemark
 \global\def\tablenotetext#1#2{\footnotetext[#1]{\currtabletypesize\relax#2}}
 
 %% redefined by AH below, since it wasn't working with tabular table
@@ -5281,10 +5281,10 @@ width 0pt\currtabletypesize{\sc Note}---{#1}\vskip1pt}}
 
 \def\tablenotetext#1#2{\vskip1pt{\currtabletypesize\vskip1pt\indent\vrule
 height 11pt depth
-2pt width0pt\relax$^{\hbox to 5pt{$#1$}}$#2\vskip1pt}}
+2pt width0pt\relax{\normalfont\textsuperscript{\scriptsize #1}} #2\vskip1pt}} % Adjusted by Bin Ren to match published tablenotetext mark
 
 \def\tablerefs#1{{\small\vskip3pt\indent\vrule height 11pt depth 2pt
-width 0pt\currtabletypesize{\bf References}---{#1}\vskip1sp}}
+width 0pt\currtabletypesize{\bf References.}{ #1}\vskip1sp}} % Adjusted by Bin Ren to match publication style
 
 \let\tablereferences\tablerefs
 
