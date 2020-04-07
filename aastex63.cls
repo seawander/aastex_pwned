@@ -778,7 +778,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 %% 
 \renewcommand\title[2][]{%
 \def\@title{\setbox0=\vbox{\let\footnote\tempfootnote #2}%
-{\Large%\uppercase % changed to \Large by Bin Ren to match 2019 ApJ publication font size for title
+{\let\footnote\tempfootnoteintitle\Large%\uppercase % changed to \Large by Bin Ren to match 2019 ApJ publication font size for title
 \bf{#2}}%% here??? % changed by Bin Ren
 \kickoutfootnotes
 \ifdoublespace\vskip 3\baselineskip\fi
