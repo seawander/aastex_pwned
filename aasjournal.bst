@@ -1291,10 +1291,16 @@ FUNCTION {format.journal}
 			                    				{"RvMP" *}
 			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "RvMP" * "}" *}
 			                    			if$}
+			                    			{journal "The Annals of Statistics" = 
+			                    			{doi empty$
+			                    				{"AnSta" *}
+			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "AnSta" * "}" *}
+			                    			if$}
 			                    			{doi empty$
 			                    				{ journal }
 			                    				{ "\href{http://dx.doi.org/" doi * "}{\color{magenta}" * journal * "}" * }
 			                    		      	if$}
+			                    		if$}
 			                    		if$}
 			                    		if$}
 			                    		if$}
