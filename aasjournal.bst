@@ -1143,12 +1143,21 @@ FUNCTION {format.full.book.spec} % The title should be on the stack.
 	      " No." number tie.or.space.connect * }
 	    if$
 	}
-	{ ", Vol." volume tie.or.space.connect *
+	{ adsurl empty$ % adjusted by Bin Ren
+		{", Vol." volume tie.or.space.connect *
 	  number empty$
 	    'skip$
 	    {"Both volume and number fields in " * cite$ * warning$ }
 	    if$
-	}
+		}
+		{", Vol." "\href{" adsurl * "}{\color{blue}" * volume * "}" *  tie.or.space.connect *
+	  number empty$
+	    'skip$
+	    {"Both volume and number fields in " * cite$ * warning$ }
+	    if$
+		}
+		if$
+	}	
 	if$
     }
     { volume empty$
