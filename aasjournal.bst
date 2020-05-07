@@ -1310,10 +1310,28 @@ FUNCTION {format.journal}
 			                    				{"JOSA" *}
 			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "JOSA" * "}" *}
 			                    			if$}
+			                    			{journal "Experimental Astronomy" = 
+			                    			{doi empty$
+			                    				{"ExA" *}
+			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "ExA" * "}" *}
+			                    			if$}
+			                    			{journal "Journal of the American Statistical Association" = 
+			                    			{doi empty$
+			                    				{"JASA" *}
+			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "JASA" * "}" *}
+			                    			if$}
+			                    			{journal "Nature Methods" = 
+			                    			{doi empty$
+			                    				{"NatMe" *}
+			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "NatMe" * "}" *}
+			                    			if$}
 			                    			{doi empty$
 			                    				{ journal }
 			                    				{ "\href{http://dx.doi.org/" doi * "}{\color{magenta}" * journal * "}" * }
 			                    		      	if$}
+			                    		if$}
+			                    		if$}
+			                    		if$}
 			                    		if$}
 			                    		if$}
 			                    		if$}
