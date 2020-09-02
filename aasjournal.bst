@@ -1325,10 +1325,16 @@ FUNCTION {format.journal}
 			                    				{"NatMe" *}
 			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "NatMe" * "}" *}
 			                    			if$}
+			                    			{journal "IEEE Transactions on Image Processing" = 
+			                    			{doi empty$
+			                    				{"ITIP" *}
+			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "ITIP" * "}" *}
+			                    			if$}
 			                    			{doi empty$
 			                    				{ journal }
 			                    				{ "\href{http://dx.doi.org/" doi * "}{\color{magenta}" * journal * "}" * }
 			                    		      	if$}
+			                    		if$}
 			                    		if$}
 			                    		if$}
 			                    		if$}
