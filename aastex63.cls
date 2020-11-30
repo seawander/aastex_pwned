@@ -2114,10 +2114,10 @@ width0pt\relax#1$}\ignorespaces}
                                      % improved accessibility
      pdfnewwindow=true,      % links in new window
      colorlinks=true,    % false: boxed links; true: colored links
-     linkcolor=xlinkcolor,     % color of internal links
-     citecolor=xlinkcolor,     % color of links to bibliography
+     linkcolor=blue,     % color of internal links
+     citecolor=blue,     % color of links to bibliography
      filecolor=xlinkcolor,  % color of file links
-     urlcolor=xlinkcolor,      % color of external links
+     urlcolor=blue,      % color of external links
      final=true,
  ]{hyperref}
 
@@ -6250,7 +6250,7 @@ on page
 \def\new@author@def#1#2{%
  \move@AU\move@AF\move@AUAF
  \let\@AF@join\@author@join
- \def\@author{{\href{http://orcid.org/#1}{#2%
+ \def\@author{{#2\href{http://orcid.org/#1}{%
 \openin1 orcid.png \ifeof1
 %% message for authors??
 %\typeout{^^J^^J  ! Missing File: orcid.png; needed for Orcid Author icon !
