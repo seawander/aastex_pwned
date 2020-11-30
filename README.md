@@ -6,7 +6,7 @@ Download ```aastex63.cls``` (or ```aastex62.cls```), ```aasjournal.bst```, and `
 
 Check the https://github.com/seawander/aastex_pwned/blob/master/ms.pdf file for a simple example. https://arxiv.org/abs/2001.00563 is a fully working example.
 
-Add the following commands between `\usepackage` and `\begin{document}` to highlight only year in the main text.
+Add the following commands between `\usepackage` and `\begin{document}` in your `.tex` file to highlight only year in the main text.
 ```
 %%%%%%The command BELOW link only the year (not the author name)
 \makeatletter
