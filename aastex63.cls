@@ -5,7 +5,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\currversion{6.3}
-
+%This customized template is available at https://github.com/seawander/aastex_pwned %added by Bin Ren
 %%
 %%    These files are distributed
 %%    WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -859,7 +859,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
   \@affiliation{%\hspace*{2mm}
 %% october 2017 changes:
 \centering
- #1\ifmodern
+ #1\ifmodern % explained by Bin Ren: this is how the affiliations are formatted. If you replace "#1" with "{\color{blue}#1}", then the affiliation texts will be blue.
 \baselineskip=9.5pt
  \else
         \iftwelvepoint
@@ -5794,8 +5794,8 @@ by 1\relax}\ignorespaces}%
   }{%
    \frontmatter@author@produce@script
   }%
-  \frontmatter@RRAPformat{%
-\vskip12pt
+  \frontmatter@RRAPformat{\it% "\it" added by Bin Ren to make Italics for "received/revised/accepted/published"
+\vskip2pt %changed by Bin Ren from 12pt to 2pt to reduce space between affiliations and line for received/revised/accepted/published
    \expandafter\produce@RRAP\expandafter{\@date}%
    \expandafter\produce@RRAP\expandafter{\@received}%
    \expandafter\produce@RRAP\expandafter{\@revised}%
