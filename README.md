@@ -4,7 +4,7 @@ AASTex.cls and aasjournal.bst files for __maximum similarity__ with published ve
 ## How to use:
 Download ```aastex63.cls``` (or ```aastex62.cls```), ```aasjournal.bst```, and ```orcid.png``` from https://github.com/seawander/aastex_pwned.
 
-Check the https://github.com/seawander/aastex_pwned/blob/master/ms.pdf file for a simple example. https://arxiv.org/abs/2001.00563 is a fully working example.
+Check the https://github.com/seawander/aastex_pwned/blob/master/ms.pdf file for a simple example. https://arxiv.org/abs/2012.05242 is a fully working example.
 
 Add the following commands between `\usepackage` and `\begin{document}` in your `.tex` file to highlight only year in the main text.
 ```
