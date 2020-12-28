@@ -5,7 +5,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\currversion{6.3}
-%This customized template is available at https://github.com/seawander/aastex_pwned %added by Bin Ren
+
 %%
 %%    These files are distributed
 %%    WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -1903,7 +1903,7 @@ the#1\endcsname}
 }%
 
 %% march 2019, added \it to tablenotemark
-\global\def\tablenotemark#1{{\normalfont\textsuperscript{\scriptsize #1}}} % changed by Bin Ren to \scriptsize to match published tablenotemark
+\global\def\tablenotemark#1{\color{blue}{\normalfont\textsuperscript{\scriptsize #1}}} % changed by Bin Ren to \scriptsize to match published tablenotemark
 \global\def\tablenotetext#1#2{\footnotetext[#1]{\currtabletypesize\relax#2}}
 
 %% redefined by AH below, since it wasn't working with tabular table
