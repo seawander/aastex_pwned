@@ -3,6 +3,7 @@
 %% July 8, 2019 (6:15pm)                         %%
 %% Copyright 2019 American Astronomical Society  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This customized .cls file is available at https://github.com/seawander/aastex_pwned 
 
 \def\currversion{6.3}
 
@@ -627,12 +628,12 @@ revtex4-1.cls^^J^^J}\stop
 \let\shortauthors\righthead
 
 \def\ps@apjheads{\let\@mkboth\markboth
-     \def\@evenfoot{}
+     \def\@evenfoot{\hfil \rm\thepage \hfil} %added by Bin Ren to center page number at page bottom
     \def\@evenhead{\lower9mm\hbox to\textwidth{
-                     \rm\thepage\hfil \rm\textsc{\@rectohead} \hfil}}}
-    \def\@oddfoot{}
+                     \hfil \rm{\@versohead\hfill\@rectohead} \hfil}}} % removed \textsc before {\@rectohead}  by Bin Ren
+    \def\@oddfoot{\hfil \rm\thepage \hfil} %added by Bin Ren to center page number at page bottom
     \def\@oddhead{\lower9mm\hbox to\textwidth{
-                     \hfil\rm\textsc{\@versohead}\hfil \rm\thepage}}
+                     \hfil\rm{\@versohead}\hfill\@rectohead}} % removed \textsc before {\@rectohead}  by Bin Ren
 
 \pagestyle{apjheads}
 
@@ -1051,10 +1052,12 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 \skip\footins 36pt
 \else
 \footnotesep 12pt
-\skip\footins 24pt
+\skip\footins 12pt %changed by Bin Ren from 24 pt to 12 pt to reduce space between footnoterule and main text
 \fi
 
-\let\footnoterule\relax
+%\let\footnoterule\relax %commented out by Bin Ren
+\renewcommand\footnoterule{\rule{0.6\linewidth}{0.5pt}}  %added by Bin Ren to show line
+
 
 \def\@makefntext#1{\hsize=\columnwidth\mbox{}\hspace*{3mm}\@makefnmark~#1}
 
