@@ -855,7 +855,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 \let\@centercr\savecentercr}%
 \else
 %% older version
-\renewcommand\affiliation[1]{%
+\renewcommand\affiliation[1]{% explained by Bin Ren: this is the one that's used
  \move@AU\move@AF%
  \begingroup%
   \@affiliation{%\hspace*{2mm}
@@ -865,7 +865,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 \baselineskip=9.5pt
  \else
         \iftwelvepoint
-	\ifpreprint\baselineskip=12pt\else\ifpreprinttwo\else\baselineskip19pt\fi\fi\else \baselineskip=9.5pt\fi
+	\ifpreprint\baselineskip=12pt\else\ifpreprinttwo\else\baselineskip19pt\fi\fi\else \baselineskip=0pt\fi
 \fi}%
 }%
 \fi %% end switch for longauthor
@@ -1217,7 +1217,7 @@ the#1\endcsname}
 \vtop{#1}\fi}\vskip6pt}
 
 
-\long\def\yacknowledgments#1\par{\section*{Acknowledgments}
+\long\def\yacknowledgments#1\par{\section*{}%{Acknowledgments} %commented out by Bin Ren to match publication style
 \ifanonymous{\centerline{(Acknowledgements anonymized for review)}}
 \else\nobreak{#1}\fi}
 % The above are changed by Bin Ren
@@ -1351,14 +1351,21 @@ the#1\endcsname}
 %\onecolumngrid %commented out by Bin Ren to use left over space between main text and bibliography
 \vspace{20pt}
 \goodbreak
+\iftwocolstyle% changed by Bin Ren to adjust column number for single/double column in input
  \hbox to 0.5\textwidth{\hss\normalsize \textbf{References}\hss} % changed by Bin Ren
- \vspace{5pt}\parskip=0pt % changed by Bin Ren
-\twocolumngrid 
+  \vspace{5pt}\parskip=0pt % changed by Bin Ren
+\twocolumngrid % changed by Bin Ren
+\else% changed by Bin Ren
+ \hbox to \textwidth{\hss\normalsize \textbf{References}\hss} % changed by Bin Ren
+  \vspace{5pt}\parskip=0pt % changed by Bin Ren
+\onecolumngrid % changed by Bin Ren
+\fi
 \par
  \raggedright
-\small
+\footnotesize %changed from \small by Bin Ren
 \ifmodern\else
- \vspace{10pt plus 3pt}\fi
+% \vspace{10pt plus 3pt}
+ \fi
 \par
 \topsep=0pt
  \list{}%
@@ -1371,11 +1378,11 @@ the#1\endcsname}
 \ifdoublespace
 \baselineskip=20pt
 \else
-\baselineskip=12.5pt plus 1pt \fi\fi \interlinepenalty \@M  % AV
+\baselineskip=1pt \fi\fi \interlinepenalty \@M  % AV
      \frenchspacing    % AV - to get right spacing after ``et al.'' 
      \hyphenpenalty=10000
      \itemindent=-1.0em                      %
-     \itemsep=-2pt                            % changed by Bin Ren
+     \itemsep=2pt                            % changed by Bin Ren
      \listparindent=0pt                      %
      \settowidth\labelwidth{0pt} %
      \labelsep=0pt                           %
@@ -1551,10 +1558,10 @@ the#1\endcsname}
 %\def\@dataset[#1]#2{#2}%
 
 \newcommand\facility{\@testopt\@facility{[}}%
-\def\@facility[#1]#2{{\vskip6pt{\large\it Facility:} #2}}%
+\def\@facility[#1]#2{{\vskip6pt{\it Facility:} #2.}}% Bin Ren removed \large before \it
 
 \newcommand\facilities{\@testopt\@facilities{[}}%
-\def\@facilities[#1]#2{{\vskip6pt{\large\it Facilities:} #2}}%
+\def\@facilities[#1]#2{{\vskip6pt{\it Facilities:} #2.}}% Bin Ren removed \large before \it
 
 
 \long\def\software{\bgroup\@testopt \@software {[}}
@@ -1567,8 +1574,8 @@ the#1\endcsname}
 %%
 \fontdimen2\foo=3pt %% Changed from 1.5pt to 3pt, March12, 2019
 %%
-{\large \it Software: }
-#2
+{ \it Software: } % Bin Ren removed \large before \it
+#2.
 %% returning to original fontdimen
 \iftwelvepoint
 \fontdimen2\foo=3.91663pt
@@ -6471,7 +6478,8 @@ needed. It will not do anything.^^J Please use
 \ifnum\AuthorCollaborationLimit=1
 \let\@listand\relax
 \fi
-  \ignorespaces\leavevmode\hbox{#1\unskip\@listcomma}% nice, keeps name from breaking across lines
+  \ignorespaces\leavevmode\hbox{#1\unskip\@listcomma}% nice, keeps name from breaking across lines 
+  %explained by Bin Ren: @listcomma adds comma among authors
 \fi
   \begingroup
 \ifnum\countauthors>\AuthorCollaborationLimit\else
