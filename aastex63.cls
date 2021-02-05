@@ -622,8 +622,9 @@ revtex4-1.cls^^J^^J}\stop
 
 %% running heads:
 \def\lefthead#1{\gdef\@versohead{#1}} \lefthead{\relax}
-\def\righthead#1{\ifanonymous\gdef\@rectohead{\ \ Anonymous author(s)
-\hfill}\else\gdef\@rectohead{#1}\fi} \righthead{\relax}
+\def\righthead#1{\ifanonymous\gdef\@rectohead{Anonymous author(s)
+%\hfill
+}\else\gdef\@rectohead{#1}\fi} \righthead{\relax} %the \hfill above is commented out by Bin Ren
 \let\shorttitle\lefthead
 \let\shortauthors\righthead
 
@@ -1342,11 +1343,11 @@ the#1\endcsname}
 \newdimen\bibindent
 \renewenvironment{thebibliography}[1]{\global\bibtrue
 %%\ifrnaas\newpage\fi% Not wanted, March 2019
-\onecolumngrid
+%\onecolumngrid %commented out by Bin Ren to use left over space between main text and bibliography
 \vspace{20pt}
 \goodbreak
- \hbox to\textwidth{\hss\normalsize \textbf{References}\hss} % changed by Bin Ren
- \vspace{15pt}\parskip=0pt % changed by Bin Ren
+ \hbox to 0.5\textwidth{\hss\normalsize \textbf{References}\hss} % changed by Bin Ren
+ \vspace{5pt}\parskip=0pt % changed by Bin Ren
 \twocolumngrid 
 \par
  \raggedright
