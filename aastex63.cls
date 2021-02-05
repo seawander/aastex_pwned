@@ -1217,15 +1217,20 @@ the#1\endcsname}
 \vtop{#1}\fi}\vskip6pt}
 
 
-\long\def\yacknowledgments#1\par{\vskip 5.8mm plus 1mm minus 1mm
-\vskip1sp
-\vbox{
-\section*{Acknowledgments}
-\ifanonymous
-\centerline{(Acknowledgements anonymized for review)}
-\else
-\nobreak
-\vtop{#1}\fi}\vskip6pt}
+\long\def\yacknowledgments#1\par{\section*{Acknowledgments}
+\ifanonymous{\centerline{(Acknowledgements anonymized for review)}}
+\else\nobreak{#1}\fi}
+% The above are changed by Bin Ren
+% The following are commented out by Bin Ren to save space between Software and Acknowledgements
+%\par{\vskip 5.8mm plus 1mm minus 1mm
+%\vskip1sp
+%\vbox{
+%\section*{Acknowledgments}
+%\ifanonymous
+%\centerline{(Acknowledgements anonymized for review)}
+%\else
+%\nobreak
+%\vtop{#1}\fi}\vskip6pt}
 
 \def\acknowledgments{\futurelet\next\checkforblankline}
 \def\checkforblankline{\ifx\next\par \let\go\xacknowledgments \else
