@@ -5297,7 +5297,7 @@ to\hsize{\hss\vtop{\hsize=\maxtablewidth\caption{\@tablecaption}}\hss}\vskip3pt\
 width 0pt\currtabletypesize{\textbf{Note.}}{ #1}\vskip1pt}} % Adjusted by Bin Ren to match published tablecomments style
 
 \def\tablenotetext#1#2{\vskip1pt{\currtabletypesize\vskip1pt\indent\vrule
-height 11pt depth
+height 1pt depth %changed by Bin Ren from 11pt to 1pt to make the Notes have single space separation
 2pt width0pt\relax{\normalfont\textsuperscript{\scriptsize #1}} #2\vskip1pt}} % Adjusted by Bin Ren to match published tablenotetext mark
 
 \def\tablerefs#1{{\small\vskip3pt\indent\vrule height 11pt depth 2pt
