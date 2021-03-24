@@ -1286,6 +1286,7 @@ the#1\endcsname}
 \def\theequation{\hbox{\Alph{section}\arabic{equation}}}
 \renewcommand{\theHfigure}{\Alph{section}\arabic{figure}} % Added by Bin Ren to properly link to appendix figures
 \def\thefigure{\hbox{\Alph{section}\arabic{figure}}}
+\def\thetable{\hbox{\Alph{section}\arabic{table}}} % added by Bin Ren for Table numbering in Appendix
 %% these are NOT supposed to reset to zero
 %\setcounter{table}{0}
 %\setcounter{figure}{0}
