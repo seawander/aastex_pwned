@@ -4,6 +4,7 @@
 %%                                                %%
 %% Copyright 2021 American Astronomical Society   %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This customized .cls file modified by Bin Ren is available at https://github.com/seawander/aastex_pwned 
 
 \def\currversion{6.3.1f}
 
@@ -625,17 +626,19 @@ revtex4-1.cls^^J^^J}\stop
 
 %% running heads:
 \def\lefthead#1{\gdef\@versohead{#1}} \lefthead{\relax}
-\def\righthead#1{\ifanonymous\gdef\@rectohead{Anonymous author(s)}\else\gdef\@rectohead{#1}\fi} \righthead{\relax}
+\def\righthead#1{\ifanonymous\gdef\@rectohead{Anonymous author(s)
+%\hfill
+}\else\gdef\@rectohead{#1}\fi} \righthead{\relax} %the \hfill above is commented out by Bin Ren
 \let\shorttitle\lefthead
 \let\shortauthors\righthead
 
 \def\ps@apjheads{\let\@mkboth\markboth
-     \def\@evenfoot{}
-    \def\@evenhead{\lower9mm\hbox to\textwidth{%
-                     \rm\thepage\hfill\textsc{\@rectohead}\hfill}}}
-    \def\@oddfoot{}
+     \def\@evenfoot{\hfil \rm\thepage \hfil} %added by Bin Ren to center page number at page bottom
+    \def\@evenhead{\lower9mm\hbox to\textwidth{
+                     \hfil \rm{\@versohead\hfill\@rectohead} \hfil}}} % removed \textsc before {\@rectohead}  by Bin Ren
+    \def\@oddfoot{\hfil \rm\thepage \hfil} %added by Bin Ren to center page number at page bottom
     \def\@oddhead{\lower9mm\hbox to\textwidth{
-                     \hfil\rm\textsc{\@versohead}\hfil \rm\thepage}}
+                     \hfil\rm{\@versohead}\hfill\@rectohead}} % removed \textsc before {\@rectohead}  by Bin Ren
 
 \pagestyle{apjheads}
 
@@ -783,8 +786,8 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 %% 
 \renewcommand\title[2][]{%
 \def\@title{\setbox0=\vbox{\let\footnote\tempfootnote #2}%
-{\let\footnote\tempfootnoteintitle%\uppercase
-{#2}}%% right place for kickoutfootnotes below
+{\let\footnote\tempfootnoteintitle\Large%\uppercase % changed to \Large by Bin Ren to match 2019 ApJ publication font size for title
+\bf{#2}}%% here??? % changed by Bin Ren
 \kickoutfootnotes
 \ifdoublespace\vskip 3\baselineskip\fi
 }%
@@ -807,7 +810,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 
 
 \def\frontmatter@authorformat{\small\advance\baselineskip-3pt
-\parskip=0pt\ifrnaas\else\scshape\fi
+\parskip=0pt\ifrnaas\else\fi % changed by Bin Ren
 \ifmodern
 \vskip48pt
 \centering
@@ -822,7 +825,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 
 \def\frontmatter@affiliationfont{\normalfont\footnotesize
 %% changed october 2017
-\it
+%\it 						%commented out by Bin Ren to match publication font
 \iflongauthor\else
 \ifrnaas\else
 \rightskip-12pt plus 1fil
@@ -858,17 +861,17 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 \let\@centercr\savecentercr}%
 \else
 %% older version
-\renewcommand\affiliation[1]{%
+\renewcommand\affiliation[1]{% explained by Bin Ren: this is the one that's used
  \move@AU\move@AF%
  \begingroup%
   \@affiliation{%\hspace*{2mm}
 %% october 2017 changes:
 \centering
- #1\ifmodern
+ #1\ifmodern % explained by Bin Ren: this is how the affiliations are formatted. If you replace "#1" with "{\color{blue}#1}", then the affiliation texts will be blue.
 \baselineskip=9.5pt
  \else
         \iftwelvepoint
-	\ifpreprint\baselineskip=12pt\else\ifpreprinttwo\else\baselineskip19pt\fi\fi\else \baselineskip=9.5pt\fi
+	\ifpreprint\baselineskip=12pt\else\ifpreprinttwo\else\baselineskip19pt\fi\fi\else \baselineskip=0pt\fi
 \fi}%
 }%
 \fi %% end switch for longauthor
@@ -881,7 +884,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 \def\frontmatter@preabstractspace{12pt}
 \def\frontmatter@postabstractspace{12pt}
 
-\def\abstractname{ABSTRACT}
+\def\abstractname{\textbf{Abstract}} % Changed by Bin Ren
 \long\def\frontmatter@abstractheading{%
  \begingroup
   \centering
@@ -968,7 +971,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 %  ****************************************
 
 
-  \def\@keys@name{\textit{Keywords:}\/~\mbox{}}%
+  \def\@keys@name{\textit{Unified Astronomy Thesaurus concepts:}\/~\mbox{}}% Changed by Bin Ren from "Keywords" to "Unified Astronomy Thesaurus concepts"
 
 \newlength{\keys@width}
 \def\frontmatter@keys@format{\ifmodern\vskip0pt\else\vspace*{0.5mm}\fi%
@@ -978,7 +981,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 \leftskip=34pt
 \fi
 \parindent=0pt%
-    \hangindent=\keys@width\hangafter=1\normalsize}%
+    \hangindent=0\keys@width\hangafter=1\normalsize}% 0 before \keys is added by Bin Ren to avoid forced indenting after ":"
 \def\@keywords@produce#1{%
  \showKEYS@sw{%
   \begingroup%
@@ -1057,10 +1060,11 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 \skip\footins 36pt
 \else
 \footnotesep 12pt
-\skip\footins 24pt
+\skip\footins 12pt %changed by Bin Ren from 24 pt to 12 pt to reduce space between footnoterule and main text
 \fi
 
-\let\footnoterule\relax
+%\let\footnoterule\relax %commented out by Bin Ren
+\renewcommand\footnoterule{\rule{0.6\linewidth}{0.5pt}}  %added by Bin Ren to show line before footnotes
 
 \def\@makefntext#1{\hsize=\columnwidth\mbox{}\hspace*{3mm}\@makefnmark~#1}
 
@@ -1134,7 +1138,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 \def\p@subparagraph   {}
 
 
-\def\sec@upcase#1{\uppercase{#1}}
+\def\sec@upcase#1{\textbf{#1}} % Changed by Bin Ren
 \def\subsec@upcase#1{\relax{#1}}
 
 %
@@ -1152,8 +1156,8 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
     \refstepcounter{#1} \edef \@svsec {\ApjSectionMarkInTitle 
     {\csname the#1\endcsname}}\fi
   \@hangfrom {\hskip #3\relax 
-    \ifnum #2=1{\secnum@size {\rm\@svsec~}}%
-    \else {\subsecnum@size {\rm\@svsec~}}\fi }%
+    \ifnum #2=1{\secnum@size {\bf\@svsec~}}% Modified by Bin Ren to match 2019 ApJ publication style: Section number font (\bf)
+    \else {\subsecnum@size {\it\@svsec~}}\fi }% Modified by Bin Ren to match 2019 ApJ publication style: Subsection number font (\it)
   {\interlinepenalty \@M 
    \ifnum #2=1\sec@upcase{#8}%
    \else \subsec@upcase{#8}\fi\par}\endgroup 
@@ -1181,6 +1185,7 @@ the#1\endcsname}
 \def\go{\label{\templabel}}\fi\go
 \let\templabel\relax
 }
+
 
 \def\@ssect#1#2#3#4#5{\@tempskipa #3\relax
    \ifdim \@tempskipa>\z@
@@ -1333,16 +1338,15 @@ For more details, see:\\
 %   appendixfloats: Needed. ??
 
 \newif\ifappendixon
-\def\appendix{\global\appendixontrue
+\def\appendix{
+\global\appendixontrue
 \if@two@col  
-\onecolumngrid
-\noindent\mbox{}\vrule height 24pt width0pt\hfill{\apjsecfont APPENDIX}\hfill\mbox{}\par
-\vskip18pt
+\twocolumngrid % changed by Bin Ren on 2019 June 19 to allow for two column appendices
+\noindent\mbox{}\vrule height 24pt width0pt\hfill{\apjsecfont}\hfill\mbox{}\par\vskip18pt % changed by Bin Ren
    \if@two@col@app\global\@two@coltrue\twocolumngrid \fi
    % above, we want onecolumngrid to be default. Only twocolumn is asked for in documentclass option
 \else
-\noindent\mbox{}\vrule height 24pt width0pt\hfill{\apjsecfont
-APPENDIX}\hfill\mbox{}\par 
+\noindent\mbox{}\vrule height 24pt width0pt\hfill{\apjsecfont}\hfill\mbox{}\par % changed by Bin Ren
 \vskip18pt
     \if@two@col@app\global\@two@coltrue\twocolumngrid 
          \fi\fi
@@ -1353,10 +1357,22 @@ APPENDIX}\hfill\mbox{}\par
           \setcounter{section}{0}
           \setcounter{subsection}{0}
           \setcounter{equation}{0}
+          \setcounter{figure}{0}
 %%
 \ifletteredappendix
-          \def\thesection{\Alph{section}}
-          \def\theequation{\hbox{\Alph{section}\arabic{equation}}}
+\def\thesection{Appendix~\Alph{section}}
+\def\thesubsection{\Alph{section}.\arabic{subsection}}
+\def\thesubsubsection{\Alph{section}.\arabic{subsubsection}}
+\def\theparagraph{\Alph{section}.\arabic{paragraph}}
+
+\counterwithin*{equation}{section} % Added by Bin Ren to reset equation counter in each section in appendix
+\counterwithin*{figure}{section} % Added by Bin Ren to reset figure counter in each section in appendix
+\counterwithin*{table}{section} % Added by Bin Ren to reset table counter in each section in appendix
+
+
+\def\theequation{\hbox{\Alph{section}\arabic{equation}}}
+\renewcommand{\theHfigure}{\Alph{section}\arabic{figure}} % Added by Bin Ren to properly link to appendix figures
+\def\thefigure{\hbox{\Alph{section}\arabic{figure}}}
 %% these are NOT supposed to reset to zero
 %\setcounter{table}{0}
 %\setcounter{figure}{0}
@@ -1424,22 +1440,24 @@ APPENDIX}\hfill\mbox{}\par
 \newdimen\bibindent
 \renewenvironment{thebibliography}[1]{\global\bibtrue
 %%\ifrnaas\newpage\fi% Not wanted, March 2019
-\onecolumngrid
+%\onecolumngrid %commented out by Bin Ren to use left over space between main text and bibliography
 \vspace{20pt}
 \goodbreak
-    \hbox to\textwidth{\hss\normalsize REFERENCES\hss}
-\vspace{6pt}\parskip=0pt
-\twocolumngrid 
-%% Jan29, 2021, added \ifonecolstyle
-\ifnumlines
-\ifonecolstyle
-\ifpreprinttwo\else
-\advance\linenumbersep-12pt\fi\fi\fi
+\iftwocolstyle% changed by Bin Ren to adjust column number for single/double column in input
+ \hbox to 0.5\textwidth{\hss\normalsize \textbf{References}\hss} % changed by Bin Ren
+  \vspace{5pt}\parskip=0pt % changed by Bin Ren
+\twocolumngrid % changed by Bin Ren
+\else% changed by Bin Ren
+ \hbox to \textwidth{\hss\normalsize \textbf{References}\hss} % changed by Bin Ren
+  \vspace{5pt}\parskip=0pt % changed by Bin Ren
+\onecolumngrid % changed by Bin Ren
+\fi
 \par
  \raggedright
-\small
+\footnotesize %changed from \small by Bin Ren
 \ifmodern\else
- \vspace{10pt plus 3pt}\fi
+% \vspace{10pt plus 3pt}
+ \fi
 \par
 \topsep=0pt
  \list{}%
@@ -1452,11 +1470,11 @@ APPENDIX}\hfill\mbox{}\par
 \ifdoublespace
 \baselineskip=20pt
 \else
-\baselineskip=13pt plus 1pt \fi\fi \interlinepenalty \@M  % AV
+\baselineskip=1pt \fi\fi \interlinepenalty \@M  % AV
      \frenchspacing    % AV - to get right spacing after ``et al.'' 
      \hyphenpenalty=10000
      \itemindent=-1.0em                      %
-     \itemsep=0pt                            %
+     \itemsep=2pt                            % changed by Bin Ren
      \listparindent=0pt                      %
      \settowidth\labelwidth{0pt} %
      \labelsep=0pt                           %
@@ -1632,10 +1650,10 @@ APPENDIX}\hfill\mbox{}\par
 %\def\@dataset[#1]#2{#2}%
 
 \newcommand\facility{\@testopt\@facility{[}}%
-\def\@facility[#1]#2{{\vskip6pt{\large\it Facility:} #2}}%
+\def\@facility[#1]#2{{\vskip6pt{\it Facility:} #2.}}% Bin Ren removed \large before \it
 
 \newcommand\facilities{\@testopt\@facilities{[}}%
-\def\@facilities[#1]#2{{\vskip6pt{\large\it Facilities:} #2}}%
+\def\@facilities[#1]#2{{\vskip6pt{\it Facilities:} #2.}}% Bin Ren removed \large before \it
 
 
 \long\def\software{\bgroup\@testopt \@software {[}}
@@ -1648,7 +1666,7 @@ APPENDIX}\hfill\mbox{}\par
 %%
 \fontdimen2\foo=3pt %% Changed from 1.5pt to 3pt, March12, 2019
 %%
-{\large \it Software: }
+{ \it Software: } % Bin Ren removed \large before \it
 #2
 %% returning to original fontdimen
 \iftwelvepoint
@@ -1882,7 +1900,7 @@ APPENDIX}\hfill\mbox{}\par
 \newcommand\nphysa{\ref@jnl{NuPhA}}%     % Nuclear Physics A 
 \newcommand\physrep{\ref@jnl{PhR}}%       % Physics Reports 
 \newcommand\physscr{\ref@jnl{PhyS}}%        % Physica Scripta 
-\newcommand\planss{\ref@jnl{Planet.~Space~Sci.}}%  % Planetary Space Science 
+\newcommand\planss{\ref@jnl{P\&SS}}%  % Planetary Space Science 
 \newcommand\procspie{\ref@jnl{Proc.~SPIE}}%      % Proceedings of the SPIE 
 
 \newcommand\actaa{\ref@jnl{AcA}}%  % Acta Astronomica
@@ -1994,7 +2012,7 @@ APPENDIX}\hfill\mbox{}\par
 }%
 
 %% march 2019, added \it to tablenotemark
-\global\def\tablenotemark#1{{\normalfont\textsuperscript{\normalsize\it #1}}}
+\global\def\tablenotemark#1{{\color{blue}{\normalfont\textsuperscript{\scriptsize #1}}}} % changed by Bin Ren to \scriptsize to match published tablenotemark
 \global\def\tablenotetext#1#2{\footnotetext[#1]{\currtabletypesize\relax#2}}
 
 %% redefined by AH below, since it wasn't working with tabular table
@@ -2187,6 +2205,8 @@ width0pt\relax#1$}\ignorespaces}
   \do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
   \do\Y\do\Z\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9}
 
+%% for counting equations in different section in appendix % added by Bin Ren
+\usepackage{chngcntr}      % added by Bin Ren
 
 %% for tables continuing over pages
 \usepackage{longtable}
@@ -2201,13 +2221,13 @@ width0pt\relax#1$}\ignorespaces}
 %% In response to request from AAS
  \usepackage[bookmarks=true,         % show bookmarks bar?/ Changed March 22, 2019 for
                                      % improved accessibility
-    pdfnewwindow=true,      % links in new window
-   colorlinks=true,    % false: boxed links; true: colored links
-  linkcolor=xlinkcolor,     % color of internal links
- citecolor=xlinkcolor,     % color of links to bibliography
-filecolor=xlinkcolor,  % color of file links
-urlcolor=xlinkcolor,      % color of external links
-final=true,
+     pdfnewwindow=true,      % links in new window
+     colorlinks=true,    % false: boxed links; true: colored links
+     linkcolor=blue,     % color of internal links
+     citecolor=blue,     % color of links to bibliography
+     filecolor=xlinkcolor,  % color of file links
+     urlcolor=blue,      % color of external links
+     final=true,
  ]{hyperref}
 
 
@@ -5377,14 +5397,14 @@ to\hsize{\hss\vtop{\hsize=\maxtablewidth\caption{\@tablecaption}}\hss}\vskip3pt\
 }
 
 \def\tablecomments#1{\vskip1pt{\small\vskip1sp\indent\vrule height 11pt depth 2pt
-width 0pt\currtabletypesize{\sc Note}---{#1}\vskip1pt}}
+width 0pt\currtabletypesize{\textbf{Notes.}}{ #1}\vskip1pt}} % Adjusted by Bin Ren to match published tablecomments style
 
 \def\tablenotetext#1#2{\vskip1pt{\currtabletypesize\vskip1pt\indent\vrule
 height 11pt depth
-2pt width0pt\relax$^{\hbox to 5pt{$#1$}}$#2\vskip1pt}}
+2pt width0pt\relax{\normalfont\textsuperscript{\scriptsize #1}} #2\vskip1pt}} % Adjusted by Bin Ren to match published tablenotetext mark
 
 \def\tablerefs#1{{\small\vskip3pt\indent\vrule height 11pt depth 2pt
-width 0pt\currtabletypesize{\bf References}---{#1}\vskip1sp}}
+width 0pt\currtabletypesize{\textbf{References.}}{ #1}\vskip1sp}} % Adjusted by Bin Ren to match publication style
 
 \let\tablereferences\tablerefs
 
@@ -5875,6 +5895,10 @@ by 1\relax}\ignorespaces}%
 \newcommand*\submitjournal[1]
 {\def\@submitted{Submitted to #1}}%
 
+\newcommand*\acceptjournal[1]
+{\def\@submitted{Accepted to #1}}% Added by Bin Ren
+
+
 %% this one is used &&&
 \def\titleblock@produce{%
  \begingroup
@@ -5892,8 +5916,8 @@ by 1\relax}\ignorespaces}%
   }{%
    \frontmatter@author@produce@script
   }%
-  \frontmatter@RRAPformat{%
-\vskip12pt
+  \frontmatter@RRAPformat{\it% "\it" added by Bin Ren to make Italics for "received/revised/accepted/published"
+\vskip2pt %changed by Bin Ren from 12pt to 2pt to reduce space between affiliations and line for received/revised/accepted/published
    \expandafter\produce@RRAP\expandafter{\@date}%
    \expandafter\produce@RRAP\expandafter{\@received}%
    \expandafter\produce@RRAP\expandafter{\@revised}%
@@ -6288,13 +6312,13 @@ on page
 \def\new@author@def#1#2{%
  \move@AU\move@AF\move@AUAF
  \let\@AF@join\@author@join
- \def\@author{{\href{http://orcid.org/#1}{#2% 
-\openin1 Orcid-ID.png \ifeof1
+ \def\@author{{#2\href{http://orcid.org/#1}{%
+\openin1 orcid.png \ifeof1
 %% message for authors??
-%\typeout{^^J^^J  ! Missing File: Orcid-ID.png; needed for Orcid Author icon !
+%\typeout{^^J^^J  ! Missing File: orcid.png; needed for Orcid Author icon !
 %^^J}
 \else%
-\hskip2pt\includegraphics[width=9pt]{Orcid-ID.png}\fi}}{}}%
+\hskip2pt\includegraphics[width=7pt]{orcid.png}\fi}}{}}% Modified by Bin Ren
 }%
 
 \def\orciderrormessage{%
@@ -6497,7 +6521,8 @@ needed. It will not do anything.^^J Please use
 \ifnum\AuthorCollaborationLimit=1
 \let\@listand\relax
 \fi
-  \ignorespaces\leavevmode\hbox{#1\unskip\@listcomma}% nice, keeps name from breaking across lines
+  \ignorespaces\leavevmode\hbox{#1\unskip\@listcomma}% nice, keeps name from breaking across lines 
+  %explained by Bin Ren: @listcomma adds comma among authors
 \fi
   \begingroup
 \ifnum\countauthors>\AuthorCollaborationLimit\else
@@ -7741,6 +7766,12 @@ Deleted recent definition of \appendix, returned to earlier version
 with additions.
 
 ================
+
+April 12, 2021 (modification for AASTeX 6.3.1)
+
+ Modified by Bin Ren to match 2019 ApJ publication style, including (but not limited to)
+ 1. Bold font for Section number and text.
+ 2. Two column appendix is turned on.
 
 
 
