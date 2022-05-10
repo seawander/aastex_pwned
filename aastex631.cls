@@ -1064,7 +1064,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 \fi
 
 %\let\footnoterule\relax %commented out by Bin Ren
-\renewcommand\footnoterule{\rule{2in}{0.5pt}}  %added by Bin Ren to show line before footnotes
+\renewcommand\footnoterule{\rule{0.6\linewidth}{0.5pt}}  %added by Bin Ren to show line before footnotes
 
 \def\@makefntext#1{\hsize=\columnwidth\mbox{}\hspace*{3mm}\@makefnmark~#1}
 
@@ -1362,7 +1362,7 @@ For more details, see:\\
 \ifletteredappendix
 \def\thesection{Appendix~\Alph{section}}
 \def\thesubsection{\Alph{section}.\arabic{subsection}}
-\def\thesubsubsection{\Alph{section}.\arabic{subsubsection}}
+\def\thesubsubsection{\Alph{section}.\arabic{subsection}.\arabic{subsubsection}}
 \def\theparagraph{\Alph{section}.\arabic{paragraph}}
 
 \counterwithin*{equation}{section} % Added by Bin Ren to reset equation counter in each section in appendix
