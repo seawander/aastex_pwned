@@ -1330,10 +1330,16 @@ FUNCTION {format.journal}
 			                    				{"ITIP" *}
 			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "ITIP" * "}" *}
 			                    			if$}
+			                    			{journal "Research in Astronomy and Astrophysics" = 
+			                    			{doi empty$
+			                    				{"RAA" *}
+			                    				{"\href{http://dx.doi.org/" doi * "}{\color{magenta}" * "RAA" * "}" *}
+			                    			if$}
 			                    			{doi empty$
 			                    				{ journal }
 			                    				{ "\href{http://dx.doi.org/" doi * "}{\color{magenta}" * journal * "}" * }
 			                    		      	if$}
+			                    		if$}
 			                    		if$}
 			                    		if$}
 			                    		if$}
